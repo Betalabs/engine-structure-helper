@@ -1,0 +1,29 @@
+{
+    "name": "betalabs/engine-structure-helper",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Betalabs Tecnologia LTDA.",
+            "email": "betalabs@betalabs.com.br"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Betalabs\\StructureHelper\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Betalabs\\StructureHelper\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": ">= 7.1",
+        "laravel/laravel": "^5.6",
+        "myclabs/php-enum": "^1.6"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^7.1"
+    }
+}

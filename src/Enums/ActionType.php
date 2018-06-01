@@ -1,0 +1,15 @@
+<?php
+
+namespace Enums;
+
+use MyCLabs\Enum\Enum;
+
+class ActionType extends Enum
+{
+    const DELETE = 'delete';
+    const SHOW = 'show';
+    const UPDATE = 'update';
+    const DOWNLOAD = 'download';
+    const AJAX = 'ajax';
+    const EXTRA_FORMS = 'extra-forms';
+}
