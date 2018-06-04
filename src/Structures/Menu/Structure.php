@@ -4,7 +4,7 @@ namespace Betalabs\StructureHelper\Structures\Menu;
 
 use Betalabs\StructureHelper\Traits\Jsonable as JsonableTrait;
 use Illuminate\Contracts\Support\Jsonable;
-use Betalabs\StructureHelper\Interfaces\Structurable;
+use Betalabs\StructureHelper\Contracts\Structurable;
 
 abstract class Structure implements Jsonable, Structurable
 {
@@ -27,7 +27,7 @@ abstract class Structure implements Jsonable, Structurable
     /**
      * Submenu
      *
-     * @return \Betalabs\StructureHelper\Menu\Structure[]
+     * @return \Betalabs\StructureHelper\Structures\Menu\Structure[]
      */
     public function submenu(): array
     {

@@ -2,7 +2,7 @@
 
 namespace Betalabs\StructureHelper\Structures;
 
-use Illuminate\Contracts\Translation\Translator;
+use Betalabs\StructureHelper\TranslatorFactory;
 use Illuminate\Validation\ValidationRuleParser;
 use Illuminate\Validation\Validator;
 
@@ -10,25 +10,30 @@ class Validation extends Validator
 {
     /**
      * Validation constructor.
+     *
+     * @param string $path
+     * @param string $locale
      */
-    public function __construct()
+    public function __construct(string $path, string $locale)
     {
-        parent::__construct(resolve(Translator::class), [], []);
+        parent::__construct(TranslatorFactory::create($path, $locale), [], []);
     }
 
     /**
      * Return error messages from all fields
      *
-     * @param array $fieldsRules
+     * @param \Betalabs\StructureHelper\Structures\Component\Rule[] $fieldsRules
      *
      * @return array
      */
-    public function allMessages($fieldsRules)
+    public function allMessages(array $fieldsRules)
     {
         $validation = [];
-
-        foreach ($fieldsRules as $field => $rules) {
-            $validation[$field] = $this->fieldMessages($field, $rules);
+        foreach ($fieldsRules as $rule) {
+            $validation[$rule->getField()] = $this->fieldMessages(
+                $rule->getField(),
+                $rule->getRules()
+            );
         }
 
         return $validation;

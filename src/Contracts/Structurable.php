@@ -1,6 +1,6 @@
 <?php
 
-namespace Betalabs\StructureHelper\Interfaces;
+namespace Betalabs\StructureHelper\Contracts;
 
 interface Structurable
 {

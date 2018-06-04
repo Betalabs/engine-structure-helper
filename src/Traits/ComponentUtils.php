@@ -2,7 +2,7 @@
 
 namespace Betalabs\StructureHelper\Traits;
 
-use Betalabs\StructureHelper\Interfaces\Structurable;
+use Betalabs\StructureHelper\Contracts\Structurable;
 
 trait ComponentUtils
 {

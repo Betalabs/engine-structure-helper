@@ -5,12 +5,21 @@ namespace Betalabs\StructureHelper\Structures;
 use Betalabs\StructureHelper\Structures\Component\Box;
 use Betalabs\StructureHelper\Traits\Jsonable as JsonableTrait;
 use Illuminate\Contracts\Support\Jsonable;
-use Betalabs\StructureHelper\Interfaces\Structurable;
+use Betalabs\StructureHelper\Contracts\Structurable;
 use Betalabs\StructureHelper\Traits\ComponentUtils;
 
 abstract class Structure implements Jsonable, Structurable
 {
     use JsonableTrait, ComponentUtils;
+
+    /**
+     * @var string
+     */
+    protected $translationPath = 'resources/lang';
+    /**
+     * @var string
+     */
+    protected $locale = 'en';
 
     /**
      * Fields labels
@@ -60,7 +69,10 @@ abstract class Structure implements Jsonable, Structurable
     public function validations(): array
     {
         return empty($this->rules()) ? []
-            : resolve(Validation::class)->allMessages($this->rules());
+            : (new Validation(
+                $this->translationPath,
+                $this->locale
+            ))->allMessages($this->rules());
     }
 
     /**
@@ -165,7 +177,7 @@ abstract class Structure implements Jsonable, Structurable
             'labels' => $this->component($this->labels()),
             'translations' => $this->component($this->translations()),
             'rules' => $this->component($this->rules()),
-            'validations' => $this->component($this->validations()),
+            'validations' => $this->validations(),
             'routes' => $this->component($this->routes()),
             'formats' => $this->component($this->formats()),
             'selectable' => $this->component($this->selectable()),

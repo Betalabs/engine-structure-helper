@@ -27,10 +27,18 @@ class StructureTest extends TestCase
                 'test2' => ['Teste 2'],
             ],
             'rules' => [
-                'test' => ['string'],
+                'test' => ['string', 'required'],
                 'test2' => ['string'],
             ],
-            'validations' => [],
+            'validations' => [
+                'test' => [
+                    'string' => 'The test must be a string.',
+                    'required' => 'The test field is required.'
+                ],
+                'test2' => [
+                    'string' => 'The test2 must be a string.'
+                ]
+            ],
             'routes' => [
                 'test' => '/api/test',
                 'test2' => '/api/test2',
@@ -100,7 +108,6 @@ class StructureTest extends TestCase
                 'labels',
                 'translations',
                 'rules',
-                'validations',
                 'routes',
                 'formats',
                 'selectable',
@@ -120,15 +127,12 @@ class StructureTest extends TestCase
                 new Translation('test', ['Teste']),
                 new Translation('test2', ['Teste 2'])
             ]);
-        $structure->expects($this->exactly(2))
+        $structure->expects($this->any())
             ->method('rules')
             ->willReturn([
-                new Rule('test', ['string']),
+                new Rule('test', ['string', 'required']),
                 new Rule('test2', ['string'])
             ]);
-        $structure->expects($this->once())
-            ->method('validations')
-            ->willReturn([]);
         $structure->expects($this->once())
             ->method('routes')
             ->willReturn([

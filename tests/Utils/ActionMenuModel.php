@@ -2,7 +2,37 @@
 
 namespace Betalabs\StructureHelper\Tests\Utils;
 
-class ActionMenuModel
-{
+use Betalabs\StructureHelper\Structures\ActionMenu\Action\Structure;
 
+class ActionMenuModel extends Structure
+{
+    /**
+     * Menu label
+     *
+     * @return string
+     */
+    public function label(): string
+    {
+        return 'Test label';
+    }
+
+    /**
+     * App endpoint
+     *
+     * @return string
+     */
+    public function endpoint(): string
+    {
+        return '/api/test/endpoint';
+    }
+
+    /**
+     * Returns the complete endpoint
+     *
+     * @return string
+     */
+    public function completeEndpoint(): string
+    {
+        return 'http://engine.local/api/test/endpoint';
+    }
 }

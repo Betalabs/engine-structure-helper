@@ -1,6 +1,6 @@
 <?php
 
-namespace Enums;
+namespace Betalabs\StructureHelper\Enums;
 
 use MyCLabs\Enum\Enum;
 

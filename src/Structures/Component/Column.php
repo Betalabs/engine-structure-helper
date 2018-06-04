@@ -2,7 +2,7 @@
 
 namespace Betalabs\StructureHelper\Structures\Component;
 
-use Betalabs\StructureHelper\Interfaces\Structurable;
+use Betalabs\StructureHelper\Contracts\Structurable;
 
 class Column implements Structurable
 {

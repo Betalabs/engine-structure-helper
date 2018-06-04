@@ -2,7 +2,7 @@
 
 namespace Betalabs\StructureHelper\Structures\Component;
 
-use Betalabs\StructureHelper\Interfaces\Structurable;
+use Betalabs\StructureHelper\Contracts\Structurable;
 use Betalabs\StructureHelper\Traits\ComponentUtils;
 
 class Box implements Structurable

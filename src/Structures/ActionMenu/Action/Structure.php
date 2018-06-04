@@ -4,28 +4,13 @@ namespace Betalabs\StructureHelper\Structures\ActionMenu\Action;
 
 use Betalabs\StructureHelper\Traits\Jsonable as JsonableTrait;
 use Betalabs\StructureHelper\Enums\HttpMethod;
-use Enums\ActionType;
+use Betalabs\StructureHelper\Enums\ActionType;
 use Illuminate\Contracts\Support\Jsonable;
-use Betalabs\StructureHelper\Interfaces\Structurable;
+use Betalabs\StructureHelper\Contracts\Structurable;
 
 abstract class Structure implements Jsonable, Structurable
 {
     use JsonableTrait;
-
-    /**
-     * @var string
-     */
-    protected $uri;
-
-    /**
-     * AbstractStructure constructor.
-     *
-     * @param string $uri
-     */
-    public function __construct(string $uri)
-    {
-        $this->uri = $uri;
-    }
 
     /**
      * Menu label
@@ -61,7 +46,7 @@ abstract class Structure implements Jsonable, Structurable
     /**
      * Request type
      *
-     * @return \Enums\ActionType
+     * @return \Betalabs\StructureHelper\Enums\ActionType
      */
     public function type(): ActionType
     {
