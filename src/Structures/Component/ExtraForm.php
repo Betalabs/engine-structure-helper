@@ -9,11 +9,11 @@ class ExtraForm implements Structurable
     /**
      * @var string
      */
-    public $identification;
+    private $identification;
     /**
      * @var string
      */
-    public $label;
+    private $label;
     /**
      * @var string
      */
@@ -25,11 +25,11 @@ class ExtraForm implements Structurable
     /**
      * @var string
      */
-    public $action;
+    private $action;
     /**
      * @var string
      */
-    public $redirect;
+    private $redirect;
 
     /**
      * Set the identification property.
