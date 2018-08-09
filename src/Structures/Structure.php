@@ -15,11 +15,11 @@ abstract class Structure implements Jsonable, Structurable
     /**
      * @var string
      */
-    protected $translationPath = 'resources/lang';
+    protected $translationPath = __DIR__ . '/../../resources/lang';
     /**
      * @var string
      */
-    protected $locale = 'en';
+    protected $translationLocale = 'en';
 
     /**
      * Fields labels
@@ -71,7 +71,7 @@ abstract class Structure implements Jsonable, Structurable
         return empty($this->rules()) ? []
             : (new Validation(
                 $this->translationPath,
-                $this->locale
+                $this->translationLocale
             ))->allMessages($this->rules());
     }
 
