@@ -2,9 +2,9 @@
 
 namespace Betalabs\StructureHelper\Structures\Component;
 
-use Betalabs\StructureHelper\Contracts\Structurable;
+use Illuminate\Contracts\Support\Arrayable;
 
-class Translation implements Structurable
+class Translation implements Arrayable
 {
     /**
      * @var string
@@ -52,7 +52,7 @@ class Translation implements Structurable
      *
      * @return array
      */
-    public function structure(): array
+    public function toArray(): array
     {
         return [$this->getField() => $this->getTranslations()];
     }

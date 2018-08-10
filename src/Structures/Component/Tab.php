@@ -2,9 +2,9 @@
 
 namespace Betalabs\StructureHelper\Structures\Component;
 
-use Betalabs\StructureHelper\Contracts\Structurable;
+use Illuminate\Contracts\Support\Arrayable;
 
-class Tab implements Structurable
+class Tab implements Arrayable
 {
     /**
      * @var string
@@ -69,7 +69,7 @@ class Tab implements Structurable
      *
      * @return array
      */
-    public function structure(): array
+    public function toArray(): array
     {
         return [
             'identification' => $this->getIdentification(),

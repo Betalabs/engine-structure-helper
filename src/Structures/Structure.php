@@ -4,11 +4,11 @@ namespace Betalabs\StructureHelper\Structures;
 
 use Betalabs\StructureHelper\Structures\Component\Box;
 use Betalabs\StructureHelper\Traits\Jsonable as JsonableTrait;
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
-use Betalabs\StructureHelper\Contracts\Structurable;
 use Betalabs\StructureHelper\Traits\ComponentUtils;
 
-abstract class Structure implements Jsonable, Structurable
+abstract class Structure implements Jsonable, Arrayable
 {
     use JsonableTrait, ComponentUtils;
 
@@ -171,7 +171,7 @@ abstract class Structure implements Jsonable, Structurable
      *
      * @return array
      */
-    public function structure(): array
+    public function toArray(): array
     {
         return [
             'labels' => $this->component($this->labels()),

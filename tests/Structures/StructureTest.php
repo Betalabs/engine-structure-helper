@@ -99,7 +99,7 @@ class StructureTest extends TestCase
             ],
         ];
         $structure = $this->mockStructure();
-        $this->assertEquals($structureArray, $structure->structure());
+        $this->assertEquals($structureArray, $structure->toArray());
     }
 
     private function mockStructure()

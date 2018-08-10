@@ -18,7 +18,7 @@ class BoxTest extends TestCase
             'identification' => 'test-box',
             'label' => 'Test Box',
             'tabs' => []
-        ], $box->structure());
+        ], $box->toArray());
     }
 
     public function testStructureWithTabs()
@@ -41,6 +41,6 @@ class BoxTest extends TestCase
                     'fields' => ['test'],
                 ]
             ]
-        ], $box->structure());
+        ], $box->toArray());
     }
 }

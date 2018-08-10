@@ -2,10 +2,10 @@
 
 namespace Betalabs\StructureHelper\Structures\Component;
 
-use Betalabs\StructureHelper\Contracts\Structurable;
 use Betalabs\StructureHelper\Traits\ComponentUtils;
+use Illuminate\Contracts\Support\Arrayable;
 
-class Box implements Structurable
+class Box implements Arrayable
 {
     use ComponentUtils;
 
@@ -91,7 +91,7 @@ class Box implements Structurable
      *
      * @return array
      */
-    public function structure(): array
+    public function toArray(): array
     {
         return [
             'fields' => $this->getFields(),

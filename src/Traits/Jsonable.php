@@ -13,6 +13,6 @@ trait Jsonable
      */
     public function toJson($options = 0)
     {
-        return \json_encode(['data' => $this->structure()], $options);
+        return \json_encode(['data' => $this->toArray()], $options);
     }
 }

@@ -10,6 +10,6 @@ class TranslationTest extends TestCase
     public function testStructure()
     {
         $translation = new Translation('test', ['Test']);
-        $this->assertEquals(['test' => ['Test']], $translation->structure());
+        $this->assertEquals(['test' => ['Test']], $translation->toArray());
     }
 }

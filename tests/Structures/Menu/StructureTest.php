@@ -22,7 +22,7 @@ class StructureTest extends TestCase
             'label' => 'Test menu',
             'endpoint' => '/api/test/menu',
             'submenu' => []
-        ], $menu->structure());
+        ], $menu->toArray());
     }
 
     public function testStructureWithSubMenu()
@@ -43,7 +43,7 @@ class StructureTest extends TestCase
             ->method('submenu')
             ->willReturn([$subMenu]);
 
-        $this->assertEquals($menu->structure(), [
+        $this->assertEquals($menu->toArray(), [
             'label' => 'Test menu',
             'endpoint' => '/api/test/menu',
             'submenu' => [

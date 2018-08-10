@@ -2,9 +2,9 @@
 
 namespace Betalabs\StructureHelper\Structures\Component;
 
-use Betalabs\StructureHelper\Contracts\Structurable;
+use Illuminate\Contracts\Support\Arrayable;
 
-class ExtraForm implements Structurable
+class ExtraForm implements Arrayable
 {
     /**
      * @var string
@@ -122,7 +122,7 @@ class ExtraForm implements Structurable
      *
      * @return array
      */
-    public function structure(): array
+    public function toArray(): array
     {
         return [
             'identification' => $this->getIdentification(),

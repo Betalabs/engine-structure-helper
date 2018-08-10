@@ -11,6 +11,6 @@ class LabelTest extends TestCase
     public function testStructure()
     {
         $label = new Label('test', 'Test');
-        $this->assertEquals(['test' => 'Test'], $label->structure());
+        $this->assertEquals(['test' => 'Test'], $label->toArray());
     }
 }

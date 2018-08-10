@@ -22,6 +22,6 @@ class ColumnTest extends TestCase
             'editable' => false,
             'filterable' => true,
             'sortable' => false,
-        ], $column->structure());
+        ], $column->toArray());
     }
 }

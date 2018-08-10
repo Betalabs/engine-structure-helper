@@ -5,10 +5,10 @@ namespace Betalabs\StructureHelper\Structures\ActionMenu\Action;
 use Betalabs\StructureHelper\Traits\Jsonable as JsonableTrait;
 use Betalabs\StructureHelper\Enums\HttpMethod;
 use Betalabs\StructureHelper\Enums\ActionType;
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
-use Betalabs\StructureHelper\Contracts\Structurable;
 
-abstract class Structure implements Jsonable, Structurable
+abstract class Structure implements Jsonable, Arrayable
 {
     use JsonableTrait;
 
@@ -58,7 +58,7 @@ abstract class Structure implements Jsonable, Structurable
      *
      * @return array
      */
-    public function structure(): array
+    public function toArray(): array
     {
         return [
             'label' => $this->label(),

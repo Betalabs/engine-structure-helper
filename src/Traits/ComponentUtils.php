@@ -2,7 +2,7 @@
 
 namespace Betalabs\StructureHelper\Traits;
 
-use Betalabs\StructureHelper\Contracts\Structurable;
+use Illuminate\Contracts\Support\Arrayable;
 
 trait ComponentUtils
 {
@@ -28,8 +28,8 @@ trait ComponentUtils
      */
     private function componentCollection(array $structure): array
     {
-        return array_map(function (Structurable $arrayable) {
-            return $arrayable->structure();
+        return array_map(function (Arrayable $arrayable) {
+            return $arrayable->toArray();
         }, $structure);
     }
 }

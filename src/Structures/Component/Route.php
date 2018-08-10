@@ -2,9 +2,9 @@
 
 namespace Betalabs\StructureHelper\Structures\Component;
 
-use Betalabs\StructureHelper\Contracts\Structurable;
+use Illuminate\Contracts\Support\Arrayable;
 
-class Route implements Structurable
+class Route implements Arrayable
 {
     /**
      * @var string
@@ -52,7 +52,7 @@ class Route implements Structurable
      *
      * @return array
      */
-    public function structure(): array
+    public function toArray(): array
     {
         return [$this->getField() => $this->getRoute()];
     }
