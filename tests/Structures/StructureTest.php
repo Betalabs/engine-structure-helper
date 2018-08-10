@@ -2,6 +2,7 @@
 
 namespace Betalabs\StructureHelper\Tests\Structures;
 
+use Betalabs\StructureHelper\Enums\ExhibitionType;
 use Betalabs\StructureHelper\Structures\Component\Column;
 use Betalabs\StructureHelper\Structures\Component\ExtraForm;
 use Betalabs\StructureHelper\Structures\Component\Format;
@@ -33,11 +34,11 @@ class StructureTest extends TestCase
             'validations' => [
                 'test' => [
                     'string' => 'The test must be a string.',
-                    'required' => 'The test field is required.'
+                    'required' => 'The test field is required.',
                 ],
                 'test2' => [
-                    'string' => 'The test2 must be a string.'
-                ]
+                    'string' => 'The test2 must be a string.',
+                ],
             ],
             'routes' => [
                 'test' => '/api/test',
@@ -48,7 +49,7 @@ class StructureTest extends TestCase
                 'test2' => 'document1',
             ],
             'selectable' => [
-                'exhibition' => '{test}'
+                'exhibition' => '{test}',
             ],
             'importable' => [],
             'extra_forms' => [
@@ -67,18 +68,18 @@ class StructureTest extends TestCase
                     'structure' => '/api/test2-extraform/structure',
                     'action' => null,
                     'redirect' => null,
-                ]
+                ],
             ],
             'boxes' => [
                 [
                     "fields" => [
                         "test",
-                        "test2"
+                        "test2",
                     ],
                     "identification" => "default",
                     "label" => "Default",
                     "tabs" => [],
-                ]
+                ],
             ],
             'columns' => [
                 [
@@ -94,7 +95,7 @@ class StructureTest extends TestCase
                     'editable' => false,
                     'filterable' => true,
                     'sortable' => true,
-                ]
+                ],
             ],
         ];
         $structure = $this->mockStructure();
@@ -119,19 +120,19 @@ class StructureTest extends TestCase
             ->method('labels')
             ->willReturn([
                 new Label('test', 'Test'),
-                new Label('test2', 'Test 2')
+                new Label('test2', 'Test 2'),
             ]);
         $structure->expects($this->once())
             ->method('translations')
             ->willReturn([
                 new Translation('test', ['Teste']),
-                new Translation('test2', ['Teste 2'])
+                new Translation('test2', ['Teste 2']),
             ]);
         $structure->expects($this->any())
             ->method('rules')
             ->willReturn([
                 new Rule('test', ['string', 'required']),
-                new Rule('test2', ['string'])
+                new Rule('test2', ['string']),
             ]);
         $structure->expects($this->once())
             ->method('routes')
@@ -142,8 +143,8 @@ class StructureTest extends TestCase
         $structure->expects($this->once())
             ->method('formats')
             ->willReturn([
-                new Format('test', 'document1'),
-                new Format('test2', 'document1'),
+                new Format('test', new ExhibitionType(ExhibitionType::DOCUMENT1)),
+                new Format('test2', new ExhibitionType(ExhibitionType::DOCUMENT1)),
             ]);
         $structure->expects($this->once())
             ->method('selectable')
@@ -176,7 +177,7 @@ class StructureTest extends TestCase
                     false,
                     true,
                     true
-                )
+                ),
             ]);
 
         return $structure;
