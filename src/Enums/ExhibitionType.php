@@ -15,6 +15,7 @@ class ExhibitionType extends Enum
     const NUMBER_4_DECIMALS = 'number_4_decimals';
     const NUMBER_STOCK_QUANTITY = 'number_stock_quantity';
     const CEP = 'cep';
+    const TEXTAREA = 'textarea';
     const WYSIWYG = 'wysiwyg';
     const READONLY = 'readonly';
 }
