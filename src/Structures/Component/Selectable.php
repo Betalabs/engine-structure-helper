@@ -2,9 +2,9 @@
 
 namespace Betalabs\StructureHelper\Structures\Component;
 
-use Betalabs\StructureHelper\Structures\Structure;
+use Illuminate\Contracts\Support\Arrayable;
 
-class Selectable extends Structure
+class Selectable implements Arrayable
 {
     /**
      * @var string
@@ -36,7 +36,7 @@ class Selectable extends Structure
      *
      * @return array
      */
-    public function structure(): array
+    public function toArray(): array
     {
         return ['exhibition' => $this->getExhibition()];
     }

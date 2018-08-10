@@ -10,6 +10,6 @@ class RuleTest extends TestCase
     public function testStructure()
     {
         $rule = new Rule('test', ['string']);
-        $this->assertEquals(['test' => ['string']], $rule->structure());
+        $this->assertEquals(['test' => ['string']], $rule->toArray());
     }
 }

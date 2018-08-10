@@ -12,6 +12,6 @@ class FormatTest extends TestCase
     {
         $format = new ExhibitionType(ExhibitionType::DOCUMENT1);
         $format = new Format('test', $format);
-        $this->assertEquals(['test' => 'document1'], $format->structure());
+        $this->assertEquals(['test' => 'document1'], $format->toArray());
     }
 }

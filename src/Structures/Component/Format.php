@@ -2,10 +2,10 @@
 
 namespace Betalabs\StructureHelper\Structures\Component;
 
-use Betalabs\StructureHelper\Contracts\Structurable;
 use Betalabs\StructureHelper\Enums\ExhibitionType;
+use Illuminate\Contracts\Support\Arrayable;
 
-class Format implements Structurable
+class Format implements Arrayable
 {
     /**
      * @var string
@@ -53,7 +53,7 @@ class Format implements Structurable
      *
      * @return array
      */
-    public function structure(): array
+    public function toArray(): array
     {
         return [$this->getField() => $this->getFormat()->getValue()];
     }

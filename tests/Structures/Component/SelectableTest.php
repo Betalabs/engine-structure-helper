@@ -12,7 +12,7 @@ class SelectableTest extends TestCase
         $selectable = new Selectable('{test}');
         $this->assertEquals(
             ['exhibition' => '{test}'],
-            $selectable->structure()
+            $selectable->toArray()
         );
     }
 }

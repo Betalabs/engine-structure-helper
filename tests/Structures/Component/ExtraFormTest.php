@@ -22,6 +22,6 @@ class ExtraFormTest extends TestCase
             'structure' => '/api/test-extra-forms/structure',
             'action' => null,
             'redirect' => null,
-        ], $extraForm->structure());
+        ], $extraForm->toArray());
     }
 }

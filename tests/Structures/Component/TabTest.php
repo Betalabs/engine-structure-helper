@@ -14,6 +14,6 @@ class TabTest extends TestCase
             'identification' => 'test-tab',
             'label' => 'Test Tab',
             'fields' => ['test']
-        ], $tab->structure());
+        ], $tab->toArray());
     }
 }

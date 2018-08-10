@@ -3,10 +3,10 @@
 namespace Betalabs\StructureHelper\Structures\Menu;
 
 use Betalabs\StructureHelper\Traits\Jsonable as JsonableTrait;
+use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\Support\Jsonable;
-use Betalabs\StructureHelper\Contracts\Structurable;
 
-abstract class Structure implements Jsonable, Structurable
+abstract class Structure implements Jsonable, Arrayable
 {
     use JsonableTrait;
 
@@ -42,7 +42,7 @@ abstract class Structure implements Jsonable, Structurable
     private function makeSubmenu()
     {
         return array_map(function (Structure $menu) {
-            return $menu->structure();
+            return $menu->toArray();
         }, $this->submenu());
     }
 
@@ -51,7 +51,7 @@ abstract class Structure implements Jsonable, Structurable
      *
      * @return array
      */
-    public function structure(): array
+    public function toArray(): array
     {
         return [
             'label' => $this->label(),

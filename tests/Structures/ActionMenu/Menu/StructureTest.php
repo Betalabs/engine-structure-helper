@@ -13,6 +13,6 @@ class StructureTest extends TestCase
         $menu = $this->getMockForAbstractClass(Structure::class);
 
         $menu->add(new ActionMenuModel());
-        $this->assertInstanceOf(ActionMenuModel::class, $menu->toArray()[0]);
+        $this->assertInstanceOf(ActionMenuModel::class, $menu->first());
     }
 }

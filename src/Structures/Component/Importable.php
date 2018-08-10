@@ -2,16 +2,17 @@
 
 namespace Betalabs\StructureHelper\Structures\Component;
 
-use Betalabs\StructureHelper\Contracts\Structurable;
 
-class Importable implements Structurable
+use Illuminate\Contracts\Support\Arrayable;
+
+class Importable implements Arrayable
 {
     /**
      * Build a structure
      *
      * @return array
      */
-    public function structure(): array
+    public function toArray(): array
     {
         return [];
     }
