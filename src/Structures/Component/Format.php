@@ -3,6 +3,7 @@
 namespace Betalabs\StructureHelper\Structures\Component;
 
 use Betalabs\StructureHelper\Contracts\Structurable;
+use Betalabs\StructureHelper\Enums\ExhibitionType;
 
 class Format implements Structurable
 {
@@ -11,7 +12,7 @@ class Format implements Structurable
      */
     private $field;
     /**
-     * @var string
+     * @var \Betalabs\StructureHelper\Enums\ExhibitionType
      */
     private $format;
 
@@ -28,9 +29,9 @@ class Format implements Structurable
     /**
      * Set the format property.
      *
-     * @return string
+     * @return \Betalabs\StructureHelper\Enums\ExhibitionType
      */
-    public function getFormat(): string
+    public function getFormat(): ExhibitionType
     {
         return $this->format;
     }
@@ -39,9 +40,9 @@ class Format implements Structurable
      * Format constructor.
      *
      * @param string $field
-     * @param string $format
+     * @param \Betalabs\StructureHelper\Enums\ExhibitionType $format
      */
-    public function __construct(string $field, string $format)
+    public function __construct(string $field, ExhibitionType $format)
     {
         $this->field = $field;
         $this->format = $format;
@@ -54,6 +55,6 @@ class Format implements Structurable
      */
     public function structure(): array
     {
-        return [$this->getField() => $this->getFormat()];
+        return [$this->getField() => $this->getFormat()->getValue()];
     }
 }
