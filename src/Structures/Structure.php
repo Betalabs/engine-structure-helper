@@ -167,6 +167,16 @@ abstract class Structure implements Jsonable, Arrayable
     }
 
     /**
+     * Fields dynamically added after an specified HTML event
+     *
+     * @return array
+     */
+    public function dynamic(): array
+    {
+        return [];
+    }
+
+    /**
      * Make a menu
      *
      * @return array
@@ -185,6 +195,7 @@ abstract class Structure implements Jsonable, Arrayable
             'extra_forms' => $this->componentCollection($this->extraForms()),
             'boxes' => $this->componentCollection($this->boxes()),
             'columns' => $this->componentCollection($this->columns()),
+            'dynamic' => $this->component($this->dynamic())
         ];
     }
 }

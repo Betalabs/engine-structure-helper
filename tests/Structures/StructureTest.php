@@ -4,6 +4,7 @@ namespace Betalabs\StructureHelper\Tests\Structures;
 
 use Betalabs\StructureHelper\Enums\ExhibitionType;
 use Betalabs\StructureHelper\Structures\Component\Column;
+use Betalabs\StructureHelper\Structures\Component\Dynamic;
 use Betalabs\StructureHelper\Structures\Component\ExtraForm;
 use Betalabs\StructureHelper\Structures\Component\Format;
 use Betalabs\StructureHelper\Structures\Component\Label;
@@ -97,6 +98,13 @@ class StructureTest extends TestCase
                     'sortable' => true,
                 ],
             ],
+            'dynamic' => [
+                'field' => [
+                    "event_type" => "onSelect",
+                    "structure_endpoint" => 'url',
+                    "concat" => true
+                ]
+            ]
         ];
         $structure = $this->mockStructure();
         $this->assertEquals($structureArray, $structure->toArray());
@@ -114,6 +122,7 @@ class StructureTest extends TestCase
                 'selectable',
                 'extraForms',
                 'columns',
+                'dynamic'
             ])
             ->getMock();
         $structure->expects($this->once())
@@ -178,6 +187,16 @@ class StructureTest extends TestCase
                     true,
                     true
                 ),
+            ]);
+        $structure->expects($this->once())
+            ->method('dynamic')
+            ->willReturn([
+                new Dynamic(
+                    'field',
+                    'onSelect',
+                    'url',
+                    true
+                )
             ]);
 
         return $structure;

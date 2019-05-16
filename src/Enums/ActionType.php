@@ -12,4 +12,5 @@ class ActionType extends Enum
     const DOWNLOAD = 'download';
     const AJAX = 'ajax';
     const EXTRA_FORMS = 'extra-forms';
+    const FOREIGN_ENTITY_CREATE = 'foreign-entity-create';
 }
