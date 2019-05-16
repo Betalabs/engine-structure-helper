@@ -18,4 +18,5 @@ class ExhibitionType extends Enum
     const TEXTAREA = 'textarea';
     const WYSIWYG = 'wysiwyg';
     const READONLY = 'readonly';
+    const PAGED_SELECT = 'paged-select';
 }
