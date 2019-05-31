@@ -89,6 +89,7 @@ class StructureTest extends TestCase
                     'editable' => false,
                     'filterable' => false,
                     'sortable' => false,
+                    'selectable' => false
                 ],
                 [
                     'field' => 'test2',
@@ -96,6 +97,7 @@ class StructureTest extends TestCase
                     'editable' => false,
                     'filterable' => true,
                     'sortable' => true,
+                    'selectable' => false
                 ],
             ],
             'dynamic' => [

@@ -14,7 +14,8 @@ class ColumnTest extends TestCase
             true,
             false,
             true,
-            false
+            false,
+            true
         );
         $this->assertEquals([
             'field' => 'test',
@@ -22,6 +23,7 @@ class ColumnTest extends TestCase
             'editable' => false,
             'filterable' => true,
             'sortable' => false,
+            'selectable' => true
         ], $column->toArray());
     }
 }
