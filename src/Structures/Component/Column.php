@@ -26,6 +26,10 @@ class Column implements Arrayable
      * @var bool
      */
     private $sortable;
+    /**
+     * @var bool
+     */
+    private $selectable;
 
     /**
      * Set the field property.
@@ -78,6 +82,16 @@ class Column implements Arrayable
     }
 
     /**
+     * Set the selectable property.
+     *
+     * @return bool
+     */
+    public function isSelectable(): bool
+    {
+        return $this->selectable;
+    }
+
+    /**
      * Column constructor.
      *
      * @param string $field
@@ -85,19 +99,22 @@ class Column implements Arrayable
      * @param bool $editable
      * @param bool $filterable
      * @param bool $sortable
+     * @param bool $selectable
      */
     public function __construct(
         string $field,
         bool $creatable = false,
         bool $editable = false,
         bool $filterable = false,
-        bool $sortable = false
+        bool $sortable = false,
+        bool $selectable = false
     ) {
         $this->field = $field;
         $this->creatable = $creatable;
         $this->editable = $editable;
         $this->filterable = $filterable;
         $this->sortable = $sortable;
+        $this->selectable = $selectable;
     }
 
     /**
@@ -112,7 +129,8 @@ class Column implements Arrayable
             'creatable' => $this->isCreatable(),
             'editable' => $this->isEditable(),
             'filterable' => $this->isFilterable(),
-            'sortable' => $this->isSortable()
+            'sortable' => $this->isSortable(),
+            'selectable' => $this->isSelectable()
         ];
     }
 }
