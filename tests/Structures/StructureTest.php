@@ -8,6 +8,7 @@ use Betalabs\StructureHelper\Structures\Component\Dynamic;
 use Betalabs\StructureHelper\Structures\Component\ExtraForm;
 use Betalabs\StructureHelper\Structures\Component\Format;
 use Betalabs\StructureHelper\Structures\Component\Label;
+use Betalabs\StructureHelper\Structures\Component\Report;
 use Betalabs\StructureHelper\Structures\Component\Route;
 use Betalabs\StructureHelper\Structures\Component\Rule;
 use Betalabs\StructureHelper\Structures\Component\Selectable;
@@ -106,6 +107,16 @@ class StructureTest extends TestCase
                     "structure_endpoint" => 'url',
                     "concat" => true
                 ]
+            ],
+            'reports' => [
+                "xls" => [
+                    "fields" => "*",
+                    "label" => "Excel (xls)"
+                ],
+                "pdf" => [
+                    "fields" => "*",
+                    "label" => "PDF"
+                ]
             ]
         ];
         $structure = $this->mockStructure();
@@ -124,7 +135,8 @@ class StructureTest extends TestCase
                 'selectable',
                 'extraForms',
                 'columns',
-                'dynamic'
+                'dynamic',
+                'reports'
             ])
             ->getMock();
         $structure->expects($this->once())
@@ -199,6 +211,12 @@ class StructureTest extends TestCase
                     'url',
                     true
                 )
+            ]);
+        $structure->expects($this->once())
+            ->method('reports')
+            ->willReturn([
+                new Report("Excel (xls)", "*", "xls"),
+                new Report("PDF", "*", "pdf")
             ]);
 
         return $structure;
