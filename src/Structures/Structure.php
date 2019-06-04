@@ -177,6 +177,16 @@ abstract class Structure implements Jsonable, Arrayable
     }
 
     /**
+     * Reports field
+     *
+     * @return array
+     */
+    public function reports()
+    {
+        return [];
+    }
+
+    /**
      * Make a menu
      *
      * @return array
@@ -195,7 +205,10 @@ abstract class Structure implements Jsonable, Arrayable
             'extra_forms' => $this->componentCollection($this->extraForms()),
             'boxes' => $this->componentCollection($this->boxes()),
             'columns' => $this->componentCollection($this->columns()),
-            'dynamic' => $this->component($this->dynamic())
+            'dynamic' => $this->component($this->dynamic()),
+            'reports' => $this->component($this->reports())
         ];
     }
+
+
 }
