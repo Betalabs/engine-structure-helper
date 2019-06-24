@@ -187,6 +187,16 @@ abstract class Structure implements Jsonable, Arrayable
     }
 
     /**
+     * With value to show field object
+     *
+     * @return array
+     */
+    public function with()
+    {
+        return [];
+    }
+
+    /**
      * Make a menu
      *
      * @return array
@@ -206,7 +216,8 @@ abstract class Structure implements Jsonable, Arrayable
             'boxes' => $this->componentCollection($this->boxes()),
             'columns' => $this->componentCollection($this->columns()),
             'dynamic' => $this->component($this->dynamic()),
-            'reports' => $this->component($this->reports())
+            'reports' => $this->component($this->reports()),
+            'with' => $this->component($this->with())
         ];
     }
 

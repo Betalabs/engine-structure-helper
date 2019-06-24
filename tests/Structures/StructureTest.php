@@ -13,6 +13,7 @@ use Betalabs\StructureHelper\Structures\Component\Route;
 use Betalabs\StructureHelper\Structures\Component\Rule;
 use Betalabs\StructureHelper\Structures\Component\Selectable;
 use Betalabs\StructureHelper\Structures\Component\Translation;
+use Betalabs\StructureHelper\Structures\Component\With;
 use Betalabs\StructureHelper\Tests\Utils\StructureModel;
 use PHPUnit\Framework\TestCase;
 
@@ -117,6 +118,10 @@ class StructureTest extends TestCase
                     "fields" => "*",
                     "label" => "PDF"
                 ]
+            ],
+            'with' => [
+                'test.*.field' => ['test'],
+                'test2.*.field' => ['test'],
             ]
         ];
         $structure = $this->mockStructure();
@@ -136,7 +141,8 @@ class StructureTest extends TestCase
                 'extraForms',
                 'columns',
                 'dynamic',
-                'reports'
+                'reports',
+                'with'
             ])
             ->getMock();
         $structure->expects($this->once())
@@ -217,6 +223,12 @@ class StructureTest extends TestCase
             ->willReturn([
                 new Report("Excel (xls)", "*", "xls"),
                 new Report("PDF", "*", "pdf")
+            ]);
+        $structure->expects($this->once())
+            ->method('with')
+            ->willReturn([
+                new With('test.*.field', ['test']),
+                new With('test2.*.field', ['test']),
             ]);
 
         return $structure;
