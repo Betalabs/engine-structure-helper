@@ -14,4 +14,5 @@ class ActionType extends Enum
     const EXTRA_FORMS = 'extra-forms';
     const FOREIGN_ENTITY_CREATE = 'foreign-entity-create';
     const REDIRECT = 'redirect';
+    const HREF = 'href';
 }
