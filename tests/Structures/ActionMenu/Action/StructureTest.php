@@ -26,7 +26,8 @@ class StructureTest extends TestCase
                 'complete_endpoint' => '/api/test/endpoint',
                 'endpoint' => 'http://engine.local/api/test/endpoint',
                 'http_method' => 'GET',
-                'type' => 'ajax'
+                'type' => 'ajax',
+                'listing_url' => null
             ]
         ]), $actionMenu->toJson());
     }

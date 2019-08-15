@@ -34,6 +34,13 @@ abstract class Structure implements Jsonable, Arrayable
     abstract public function completeEndpoint(): string;
 
     /**
+     * Returns a custom listing url
+     *
+     * @return string
+     */
+    abstract public function listingUrl(): ?string;
+
+    /**
      * Http request method
      *
      * @return \Betalabs\StructureHelper\Enums\HttpMethod
@@ -65,7 +72,8 @@ abstract class Structure implements Jsonable, Arrayable
             'complete_endpoint' => $this->completeEndpoint(),
             'endpoint' => $this->endpoint(),
             'http_method' => $this->httpMethod()->getValue(),
-            'type' => $this->type()
+            'type' => $this->type(),
+            'listing_url' => $this->listingUrl()
         ];
     }
 }
