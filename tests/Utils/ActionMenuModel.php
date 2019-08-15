@@ -35,4 +35,14 @@ class ActionMenuModel extends Structure
     {
         return 'http://engine.local/api/test/endpoint';
     }
+
+    /**
+     * Returns a custom listing url
+     *
+     * @return string
+     */
+    public function listingUrl(): ?string
+    {
+        return null;
+    }
 }
