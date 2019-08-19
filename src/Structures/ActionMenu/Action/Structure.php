@@ -38,7 +38,7 @@ abstract class Structure implements Jsonable, Arrayable
      *
      * @return string
      */
-    abstract public function listingUrl(): ?string;
+    abstract public function redirectUrl(): ?string;
 
     /**
      * Http request method
@@ -73,7 +73,7 @@ abstract class Structure implements Jsonable, Arrayable
             'endpoint' => $this->endpoint(),
             'http_method' => $this->httpMethod()->getValue(),
             'type' => $this->type(),
-            'listing_url' => $this->listingUrl()
+            'redirect_url' => $this->redirectUrl()
         ];
     }
 }

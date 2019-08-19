@@ -41,7 +41,7 @@ class ActionMenuModel extends Structure
      *
      * @return string
      */
-    public function listingUrl(): ?string
+    public function redirectUrl(): ?string
     {
         return null;
     }
