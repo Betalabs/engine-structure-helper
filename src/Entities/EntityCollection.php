@@ -27,7 +27,7 @@ abstract class EntityCollection extends Collection
      *
      * @return void
      */
-    public function push(...$value)
+    public function push($value)
     {
         $this->validateType($value);
         parent::push($value);
