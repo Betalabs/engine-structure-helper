@@ -186,6 +186,29 @@ abstract class Structure implements Jsonable, Arrayable
         return [];
     }
 
+
+    /**
+     * Tooltips field
+     *
+     * @return array
+     */
+    public function tooltips()
+    {
+        return [];
+    }
+
+
+    /**
+     * Hints field
+     *
+     * @return array
+     */
+    public function hints()
+    {
+        return [];
+    }
+
+
     /**
      * With value to show field object
      *
@@ -210,6 +233,8 @@ abstract class Structure implements Jsonable, Arrayable
             'validations' => $this->validations(),
             'routes' => $this->component($this->routes()),
             'formats' => $this->component($this->formats()),
+            'tooltips' => $this->component($this->tooltips()),
+            'hints' => $this->component($this->hints()),
             'selectable' => $this->component($this->selectable()),
             'importable' => $this->component($this->importable()),
             'extra_forms' => $this->componentCollection($this->extraForms()),
