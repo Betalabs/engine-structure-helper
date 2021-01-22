@@ -131,6 +131,26 @@ abstract class Structure implements Jsonable, Arrayable
     }
 
     /**
+     * Tooltips field
+     *
+     * @return array
+     */
+    public function tooltips()
+    {
+        return [];
+    }
+
+    /**
+     * Hints field
+     *
+     * @return array
+     */
+    public function hints()
+    {
+        return [];
+    }
+
+    /**
      * Columns available for import process
      *
      * @return \Betalabs\StructureHelper\Structures\Component\Importable[]
@@ -210,6 +230,8 @@ abstract class Structure implements Jsonable, Arrayable
             'validations' => $this->validations(),
             'routes' => $this->component($this->routes()),
             'formats' => $this->component($this->formats()),
+            'tooltips' => $this->component($this->tooltips()),
+            'hints' => $this->component($this->hints()),
             'selectable' => $this->component($this->selectable()),
             'importable' => $this->component($this->importable()),
             'extra_forms' => $this->componentCollection($this->extraForms()),
