@@ -24,4 +24,6 @@ class ActionType extends Enum
     const EXTRA_FORM = 'extra-form';
     const EXPORT_CONTRACT = 'export-contract';
     const RELATION_EXPORT = 'relation-export';
+    const DOWNLOAD = 'download';
+
 }
