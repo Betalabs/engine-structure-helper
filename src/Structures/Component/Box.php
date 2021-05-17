@@ -25,6 +25,17 @@ class Box implements Arrayable
      * @var array
      */
     private $tabs = [];
+    /**
+     * @var array
+     */
+    private $formats = [];
+
+    /**
+     * @var array
+     */
+    private $subBoxes = [];
+
+
 
     /**
      * Set the identification property.
@@ -67,23 +78,61 @@ class Box implements Arrayable
     }
 
     /**
+     * @return array
+     */
+    public function getFormats(): array
+    {
+        return $this->formats;
+    }
+
+    /**
+     * @param array $formats
+     */
+    public function setFormats(array $formats)
+    {
+        $this->formats = $formats;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSubBoxes()
+    {
+        return $this->subBoxes;
+    }
+
+    /**
+     * @param array $subBoxes
+     * @return $this
+     */
+    public function setSubBoxes(array $subBoxes)
+    {
+        $this->subBoxes = $subBoxes;
+        return $this;
+    }
+
+    /**
      * Box constructor.
      *
      * @param string $identification
      * @param string $label
      * @param array $fields
      * @param array $tabs
+     * @param array $formats
      */
     public function __construct(
         string $identification,
         string $label,
         array $fields,
-        array $tabs = []
+        array $tabs = [],
+        array $formats = []
     ) {
         $this->identification = $identification;
         $this->label = $label;
         $this->fields = $fields;
         $this->tabs = $tabs;
+        $this->formats = $formats;
     }
 
     /**
@@ -98,6 +147,7 @@ class Box implements Arrayable
             'identification' => $this->getIdentification(),
             'label' => $this->getLabel(),
             'tabs' => $this->componentCollection($this->getTabs()),
+            'formats' => $this->getFormats(),
         ];
     }
 }
