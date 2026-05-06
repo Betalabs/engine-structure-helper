@@ -22,8 +22,10 @@ class ActionType extends Enum
     const HREF_BLANK = 'href-blank';
     const MANAGE_INVENTORY = 'manage-inventory';
     const EXTRA_FORM = 'extra-form';
+    const EXTRA_FORMS = 'extra-forms';
     const EXPORT_CONTRACT = 'export-contract';
     const RELATION_EXPORT = 'relation-export';
     const DOWNLOAD = 'download';
+    const FOREIGN_ENTITY_CREATE = 'foreign-entity-create';
 
 }
