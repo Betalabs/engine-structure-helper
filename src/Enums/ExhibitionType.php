@@ -24,5 +24,6 @@ class ExhibitionType extends Enum
     const DISABLED_UPDATE = 'disabled:update';
     const HIDE_ON_SHOW = 'hide_on:show';
     const DISCRETE_NUMBER = 'discrete_number';
+    const PAGED_SELECT = 'paged-select';
 
 }
